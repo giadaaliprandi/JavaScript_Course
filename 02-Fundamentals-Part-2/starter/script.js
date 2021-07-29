@@ -140,3 +140,103 @@ let bills = [125, 555, 44];
 let tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
 
 console.log(bills, tips);
+
+
+///OBJECTT
+
+//ex for array to store multiple information
+const jonasArray = [
+    'Jonas',
+    'Merid',
+    2037 - 1991, /*calculation*/
+    'teacher',
+    ['michael', 'Peter', 'Steven'] /*array of friends inside the jonas array */
+];
+/*in an array there's no way to give the elements a name (for example firstname -> 'jonas'), you can call them by the order number*/
+
+/* We use object to group together diffent variables that belong together. 
+The order of these values don't matter when you retrieve them, unlike arrays where you can only access variables based by their order*/
+
+
+const jonas = {
+    /* each key: has a 'value' */
+    firstName: 'Jonas',
+    surName: 'Merid',
+    age: 2037 - 1991,
+    job: 'teacher',
+    friends: ['Michael', 'Peter', 'Steven']
+};
+
+
+//Retrieve and get data from object
+
+console.log(jonas);
+console.log(jonas.surName); //get lastname
+console.log(jonas['surName']); //get lastname from some operation/expression 
+//ex for expression
+const nameKey = 'Name'; //you add the Name string in the bracket notation to compute the expression
+console.log(jonas['first' + nameKey]);
+console.log(jonas['sur' + nameKey]);
+
+//create a popup windows
+//const interestedIn = prompt('What do you want to know about Jonas?');
+//console.log(jonas[interestedIn]);
+
+// if (jonas[interestedIn]) {
+//     console.log(jonas[interestedIn]);
+// } else {
+//     console.log('non funzia')
+// }
+
+//dot notation
+jonas.location = 'Switzerland';
+//bracket notation
+jonas['social'] = '@giada';
+console.log(jonas);
+
+
+//CHALLENGE
+
+//Jonas has 3 friend, and his bf is called Michael
+console.log(jonas['firstName'] + ' has ' + jonas.friends.length + ' friends, and his best friend is called ' + jonas.friends[0])
+
+//result
+console.log(`${jonas.firstName} has ${jonas.friends.length} friends, and his best friend is called ${jonas.friends[0]}`)
+
+//object method
+
+const giada = {
+    /* each key: has a 'value' */
+    firstName: 'Giada',
+    surName: 'Aliprandi',
+    birthYear: 1999,
+    job: 'wb',
+    friends: ['Michael', 'Peter', 'Steven'],
+    hasDriverLicense: true,
+    calcAge: function (birthYear) {
+        return 2021 - birthYear;
+    },
+    calcAge2: function () {
+        console.log('this: ')
+        console.log(this); //get the object
+        return 2021 - this.birthYear;
+    },
+    calcAge3: function () {
+        this.age = 2021 - this.birthYear; //creating a key inside the function
+        return this.age;
+    },
+    getsummary: function () {
+        return `${this.firstName} is a ${this.calcAge3} years old ${giada.job},  and ${this.hasDriverLicense ? 'has a driving license' : 'does not have'}  a driving licence `;
+    }
+};
+console.log(giada);
+console.log(giada.calcAge(giada.birthYear));
+
+console.log(giada.calcAge2());
+console.log(giada.calcAge3());
+
+
+//Challenge
+/*jonas is a 46 year old teacher and it has a driver license*/
+//summary
+console.log(giada.getsummary());
