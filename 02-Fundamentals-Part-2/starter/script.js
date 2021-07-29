@@ -240,3 +240,69 @@ console.log(giada.calcAge3());
 /*jonas is a 46 year old teacher and it has a driver license*/
 //summary
 console.log(giada.getsummary());
+
+
+//CODING CHALLENGE
+/*
+Let's go back to Mark and John comparing their BMIs! This time, let's use objects to implement the calculations! Remember: BMI = mass / height ** 2 = mass / (height * height). (mass in kg and height in meter)
+
+1. For each of them, create an object with properties for their full name, mass, and height (Mark Miller and John Smith)
+2. Create a 'calcBMI' method on each object to calculate the BMI (the same method on both objects). Store the BMI value to a property, and also return it from the method.
+3. Log to the console who has the higher BMI, together with the full name and the respective BMI. Example: "John Smith's BMI (28.3) is higher than Mark Miller's (23.9)!"
+
+TEST DATA: Marks weights 78 kg and is 1.69 m tall. John weights 92 kg and is 1.95 m tall.
+*/
+const mark = {
+    firstName: 'Mark',
+    lastName: 'Zucca',
+    mass: 78,
+    height: 1.69,
+    calcBMI: function () {
+        console.log('oggetto in BMI');
+        console.log(this);
+        this.BMI = this.mass / this.height ** 2;
+        return this.BMI;
+    }
+}
+const john = {
+    firstName: 'John',
+    lastName: 'Legend',
+    mass: 92,
+    height: 1.95,
+    calcBMI: function () {
+        console.log('oggetto in BMI');
+        console.log(this);
+        this.BMI = this.mass / this.height ** 2;
+        return this.BMI;
+    }
+}
+console.log(mark.calcBMI());
+console.log(john.calcBMI());
+console.log('john:' + john.BMI);
+console.log('mark:' + mark.BMI);
+console.log(
+    `${(john.BMI > mark.BMI)
+        ? john.firstName + ' ' + john.lastName + 's BMI (' + john.BMI.toFixed(2) + ') is higher than ' + mark.firstName + ' (' + mark.BMI.toFixed(2) + ')!!'
+        : mark.firstName + ' ' + mark.lastName + 's BMI (' + mark.BMI.toFixed(2) + ') is higher than ' + john.firstName + ' (' + john.BMI.toFixed(2) + ')!!'
+    }`
+);
+
+
+/********* LOOOPSS ***********/
+
+//for loop keeps running while condition is TRUE
+for (let rep = 1; rep <= 10; rep++) {
+    console.log('ciao 😗 ' + rep)
+}
+
+const arrayy = [
+    'Jonas',
+    'Merid',
+    2037 - 1991, /*calculation*/
+    'teacher',
+    ['michael', 'Peter', 'Steven'] /*array of friends inside the jonas array */
+];
+
+for (let i = 0; i < arrayy.length; i++) {
+    console.log(arrayy[i])
+}
